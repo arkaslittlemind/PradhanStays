@@ -9,6 +9,7 @@ import {
 import "./header.css";
 
 const Header = () => {
+
   return (
     <div className="header">
       <div className="headerContainer">
@@ -30,9 +31,11 @@ const Header = () => {
             <span>Airport Taxis</span>
           </div>
         </div>
-        <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
+        <h1 className="headerTitle">
+            A lifetime of discounts? It's Genius.
+        </h1>
         <p className="headerDesc">
-            Get rewarded for your travels with Genius, only on pradhanStays.
+            Get rewarded for your love for mountains, only on pradhanStays.
         </p>
         <button className="headerBtn">Sign in / Register</button>
       </div>
