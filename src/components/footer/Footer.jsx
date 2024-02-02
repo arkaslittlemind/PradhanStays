@@ -49,7 +49,7 @@ const Footer = () => {
       <div className="fText">
         Copyright © 2024 &nbsp;
         <Link to="https://github.com/arkaslittlemind" className="fLink">
-          Arkadipta Mojumder{" "}
+          Arkadipta Mojumder
         </Link>
       </div>
     </div>
