@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBed,
   faCalendarDays,
@@ -8,18 +6,18 @@ import {
   faPlane,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
+import { DateRange } from "react-date-range";
+import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
-  
-
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -27,7 +25,6 @@ const Header = ({ type }) => {
       key: "selection",
     },
   ]);
-
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -68,11 +65,15 @@ const Header = ({ type }) => {
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faCar} />
-            <span>Car Rentals</span>
+            <span>Car rentals</span>
+          </div>
+          <div className="headerListItem">
+            <FontAwesomeIcon icon={faBed} />
+            <span>Attractions</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport Taxis</span>
+            <span>Airport taxis</span>
           </div>
         </div>
         {type !== "list" && (
@@ -81,7 +82,8 @@ const Header = ({ type }) => {
               A lifetime of discounts? It's Genius.
             </h1>
             <p className="headerDesc">
-              Get rewarded for your love for mountains, only on pradhanStays.
+              Get rewarded for your travels – unlock instant savings of 10% or
+              more with a free Lamabooking account
             </p>
             <button className="headerBtn">Sign in / Register</button>
             <div className="headerSearch">
@@ -109,7 +111,8 @@ const Header = ({ type }) => {
                     onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
-                    className="dateRange"
+                    className="date"
+                    minDate={new Date()}
                   />
                 )}
               </div>
@@ -118,7 +121,7 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
-                >{`${options.adult} adult • ${options.children} children • ${options.room} room`}</span>
+                >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
